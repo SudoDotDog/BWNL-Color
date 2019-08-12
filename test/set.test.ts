@@ -7,7 +7,7 @@
 
 import { expect } from 'chai';
 import * as Chance from "chance";
-import { ColorSet, getColor } from '../src';
+import { colorList, ColorSet, getColor, THEME } from '../src';
 
 describe('Given {Set} related', (): void => {
 
@@ -19,5 +19,13 @@ describe('Given {Set} related', (): void => {
         const set: ColorSet = getColor(target);
 
         expect(set).to.have.lengthOf(5);
+    });
+
+    it('Should be able to get direct color set', (): void => {
+
+        const set: ColorSet = getColor(THEME.DESIRE);
+
+        expect(set).to.have.lengthOf(5);
+        expect(set).to.be.deep.equal(colorList[THEME.DESIRE]);
     });
 });

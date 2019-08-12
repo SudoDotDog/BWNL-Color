@@ -6,16 +6,30 @@
 
 export class Color {
 
-    private _list: string[];
+    private readonly _list: string[];
     private _pointer: number;
 
     public constructor(list: string[]) {
+
         this._list = list;
         this._pointer = 0;
     }
 
-    public rgba(): () => string {
+    public hex(): () => string {
+
         return (): string => {
+
+            if (!Boolean(this._list[this._pointer])) {
+                this._pointer = 0;
+            }
+            return this._list[++this._pointer];
+        };
+    }
+
+    public rgba(): () => string {
+
+        return (): string => {
+
             if (!Boolean(this._list[this._pointer])) {
                 this._pointer = 0;
             }
@@ -24,6 +38,7 @@ export class Color {
     }
 
     private parseHEXToRGBA(location: number): string {
+
         let color: string = this._list[location];
         if (color.substring(0, 1) === "#") {
             color = color.substring(1, color.length);
