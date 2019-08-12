@@ -62,6 +62,11 @@ export const colorList: Record<THEME, string[]> = {
     [THEME.ILLUSION]: ['5aa382', '78d6ac', 'bda728', '704307', 'f7b178'],
 };
 
+export const getTheme = (theme: THEME): ColorSet => {
+
+    return colorList[theme].map((each: string) => `#${each}`);
+};
+
 export const getColor = (code?: number): ColorSet => {
 
     const length: number = Object.keys(colorList).length;
