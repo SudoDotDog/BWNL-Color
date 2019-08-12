@@ -19,10 +19,8 @@ export class Color {
 
         return (): string => {
 
-            if (!Boolean(this._list[this._pointer])) {
-                this._pointer = 0;
-            }
-            return this._list[++this._pointer];
+            this._checkPointer();
+            return this._list[this._pointer++];
         };
     }
 
@@ -30,11 +28,17 @@ export class Color {
 
         return (): string => {
 
-            if (!Boolean(this._list[this._pointer])) {
-                this._pointer = 0;
-            }
+            this._checkPointer();
             return this.parseHEXToRGBA(this._pointer++);
         };
+    }
+
+    private _checkPointer(): this {
+
+        if (!Boolean(this._list[this._pointer])) {
+            this._pointer = 0;
+        }
+        return this;
     }
 
     private parseHEXToRGBA(location: number): string {

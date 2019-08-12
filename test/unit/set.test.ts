@@ -7,7 +7,7 @@
 
 import { expect } from 'chai';
 import * as Chance from "chance";
-import { colorList, ColorSet, getColor, THEME } from '../src';
+import { colorList, ColorSet, getColor, THEME } from '../../src';
 
 describe('Given {Set} related', (): void => {
 
