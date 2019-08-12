@@ -4,12 +4,25 @@
  * @description Color
  */
 
+import { getColor, THEME } from "./set";
+
 export class Color {
 
+    public static fromList(list: string[]): Color {
+
+        return new Color(list);
+    }
+
+    public static fromTheme(theme: THEME): Color {
+
+        return new Color(getColor(theme));
+    }
+
     private readonly _list: string[];
+
     private _pointer: number;
 
-    public constructor(list: string[]) {
+    private constructor(list: string[]) {
 
         this._list = list;
         this._pointer = 0;
@@ -29,7 +42,7 @@ export class Color {
         return (): string => {
 
             this._checkPointer();
-            return this.parseHEXToRGBA(this._pointer++);
+            return this._parseHEXToRGBA(this._pointer++);
         };
     }
 
@@ -41,7 +54,7 @@ export class Color {
         return this;
     }
 
-    private parseHEXToRGBA(location: number): string {
+    private _parseHEXToRGBA(location: number): string {
 
         let color: string = this._list[location];
         if (color.substring(0, 1) === "#") {
