@@ -4,6 +4,7 @@
  * @description Set
  */
 
+// tslint:disable-next-line: no-magic-numbers
 export type ColorSet = Array<string[5]>;
 
 export enum THEME {
@@ -71,6 +72,8 @@ export const getTheme = (theme: THEME): ColorSet => {
     return colorList[theme].map((each: string) => `#${each}`);
 };
 
+const COLOR_RANDOM_MODIFIER: number = 1000;
+
 export const getColor = (code?: number): ColorSet => {
 
     const length: number = Object.keys(colorList).length;
@@ -83,7 +86,7 @@ export const getColor = (code?: number): ColorSet => {
         return colorList[index];
     } else {
 
-        const ran: THEME = (Math.floor((Math.random() * 1000)) % length);
+        const ran: THEME = (Math.floor((Math.random() * COLOR_RANDOM_MODIFIER)) % length);
         return colorList[ran];
     }
 };
