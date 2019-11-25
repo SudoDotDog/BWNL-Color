@@ -68,7 +68,8 @@ export const colorList: Record<THEME, ColorSet> = {
 
 export const getTheme = (theme: THEME): ColorSet => {
 
-    return colorList[theme].map((each: string) => `#${each}`);
+    const list: ColorSet = colorList[theme];
+    return list.map((each: string) => `#${each}`) as ColorSet;
 };
 
 const COLOR_RANDOM_MODIFIER: number = 1000;
