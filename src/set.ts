@@ -4,8 +4,7 @@
  * @description Set
  */
 
-// tslint:disable-next-line: no-magic-numbers
-export type ColorSet = Array<string[5]>;
+export type ColorSet = [string, string, string, string, string];
 
 export enum THEME {
 
