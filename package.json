@@ -1,6 +1,6 @@
 {
   "name": "@bwnl/color",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": ":rainbow: Double Rainbow!",
   "main": "index.js",
   "directories": {
