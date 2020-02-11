@@ -18,6 +18,7 @@ describe('Given {Set} related', (): void => {
         const target: number = chance.natural();
         const set: ColorSet = getColor(target);
 
+        // tslint:disable-next-line: no-magic-numbers
         expect(set).to.have.lengthOf(5);
     });
 
@@ -25,6 +26,7 @@ describe('Given {Set} related', (): void => {
 
         const set: ColorSet = getColor(THEME.DESIRE);
 
+        // tslint:disable-next-line: no-magic-numbers
         expect(set).to.have.lengthOf(5);
         expect(set).to.be.deep.equal(colorList[THEME.DESIRE]);
     });
